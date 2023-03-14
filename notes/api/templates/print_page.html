@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <title>Print page with QR code</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+    <script src="{% static 'script.js' %}"></script>  
+</head>
+<body>
+      <img id="qrCodeEl" style="width: 100px; height: 100px;">
+
+
+    <div id="print-content">
+    Mohamed M'bareck Alioune
+    </div>
+    <button onclick="printPage()">Imprimer</button>
+                  
+  <script>
+    // Afficher le code QR
+    var qrCodeImg = "{{ img }}";
+    var qrCodeEl = document.getElementById("qr-code");
+    qrCodeEl.innerHTML = qrCodeImg;
+                  
+    // Fonction pour imprimer la page
+    function printPage() {
+        window.print();
+    }
+
+    </script>
+</body>
+</html>
